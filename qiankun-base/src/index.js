@@ -2,7 +2,26 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+// import reportWebVitals from './reportWebVitals';
+import { registerMicroApps, start } from 'qiankun';
+import 'antd/dist/antd.less';
+
+registerMicroApps([
+    {
+        name: 'vueApp',
+        entry: '//localhost:8080',
+        container: '#container',
+        activeRule: '/app-vue',
+    },
+    {
+        name: 'reactApp',
+        entry: '//localhost:4000',
+        activeRule: '/app-react',
+    }
+]);
+
+// 启动
+start()
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -11,7 +30,11 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// reportWebVitals();
+
+/** 
+ * 因为后续会加上 react-router-dom， 所以此处后续要记得加上 BrowserRouter
+ * <BrowserRouter>
+ *  <App />
+ * </BrowserRouter>
+ */
