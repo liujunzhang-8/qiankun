@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Layout, Menu } from 'antd';
 import { DesktopOutlined, PieChartOutlined } from '@ant-design/icons';
 import './App.css';
+import { Link } from 'react-router-dom'
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -19,10 +20,10 @@ const App = () => {
                 <div className='logo' />
                 <Menu theme='dark' defaultSelectedKeys={['1']} mode='inline'>
                     <Menu.Item key="1" icon={<PieChartOutlined />}>
-                        Vue应用
+                        <Link to="/app-vue">Vue应用</Link>
                     </Menu.Item>
                     <Menu.Item key="2" icon={<DesktopOutlined />}>
-                        React应用
+                        <Link to='/app-react'>React应用</Link>
                     </Menu.Item>
                 </Menu>
             </Sider>

@@ -5,6 +5,7 @@ import App from './App';
 // import reportWebVitals from './reportWebVitals';
 import { registerMicroApps, start } from 'qiankun';
 import 'antd/dist/antd.less';
+import { BrowserRouter } from 'react-router-dom';
 
 registerMicroApps([
     {
@@ -26,7 +27,9 @@ start()
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
   </React.StrictMode>
 );
 
