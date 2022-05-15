@@ -19,7 +19,7 @@ registerMicroApps([
         entry: '//localhost:4000',
         container: '#container',
         activeRule: '/app-react',
-    }
+    },
 ]);
 
 // 启动
