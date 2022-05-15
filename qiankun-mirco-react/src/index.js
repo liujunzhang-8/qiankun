@@ -1,12 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import './public-path'
 import reportWebVitals from './reportWebVitals';
-import {BrowserRouter } from 'react-router-dom';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import {BrowserRouter as Router } from 'react-router-dom';
+import App from './App';
 
 if (window.__POWERED_BY_QIANKUN__) {
     // eslint-disable-next-line no-undef
@@ -15,11 +13,11 @@ if (window.__POWERED_BY_QIANKUN__) {
 
 function render(props) {
     const { container } = props;
-    root.render(
+    ReactDOM.render(
         <React.StrictMode>
-            <BrowserRouter basename={window.__POWERED_BY_QIANKUN__ ? '/app-react' : '/'}>
+            <Router basename={window.__POWERED_BY_QIANKUN__ ? '/app-react' : '/'}>
                 <App />
-            </BrowserRouter>
+            </Router>
         </React.StrictMode>,
         container ? container.querySelector('#root') : document.querySelector('#root')
     );
@@ -40,7 +38,7 @@ export async function mount(props) {
 
 export async function unmount(props) {
     const {container} = props;
-    root.unmountComponentAtNode(container ? container.querySelector('#root') : document.querySelector('#root'));
+    ReactDOM.unmountComponentAtNode(container ? container.querySelector('#root') : document.querySelector('#root'));
 }
 
 // If you want to start measuring performance in your app, pass a function

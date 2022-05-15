@@ -17,12 +17,13 @@ registerMicroApps([
     {
         name: 'reactApp',
         entry: '//localhost:4000',
+        container: '#container',
         activeRule: '/app-react',
     }
 ]);
 
 // 启动
-start()
+start();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
